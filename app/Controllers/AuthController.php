@@ -85,7 +85,12 @@ class AuthController extends BaseController
 
 
             $loginip=new LoginIp();
-            $loginip->ip=$_SERVER["REMOTE_ADDR"];
+            if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+{
+$list = explode(',',$_SERVER['HTTP_X_FORWARDED_FOR']);
+$_SERVER['REMOTE_ADDR'] = $list[0];
+}
+$loginip->ip=$_SERVER["REMOTE_ADDR"];
             $loginip->userid=$user->id;
             $loginip->datetime=time();
             $loginip->type=1;
@@ -96,7 +101,7 @@ class AuthController extends BaseController
         // @todo
         $time =  3600*24;
         if ($rememberMe) {
-            $time = 3600*24*7;
+            $time = 3600*24*30;
         }
 
         if ($user->ga_enable==1) {
@@ -115,6 +120,11 @@ class AuthController extends BaseController
         $rs['msg'] = "欢迎回来";
 
         $loginip=new LoginIp();
+        if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+{
+$list = explode(',',$_SERVER['HTTP_X_FORWARDED_FOR']);
+$_SERVER['REMOTE_ADDR'] = $list[0];
+}
         $loginip->ip=$_SERVER["REMOTE_ADDR"];
         $loginip->userid=$user->id;
         $loginip->datetime=time();
@@ -123,6 +133,68 @@ class AuthController extends BaseController
 
         Wecenter::add($user, $passwd);
         Wecenter::Login($user, $passwd, $time);
+
+        return $response->getBody()->write(json_encode($rs));
+    }
+
+
+    public function loginHandles($request, $response, $args)
+    {
+        // $data = $request->post('sdf');
+        $email =  $request->getParam('email');
+        $email = strtolower($email);
+        $passwd = $request->getParam('passwd');
+        $rememberMe = $request->getParam('remember_me');
+        // Handle Login
+        $user = User::where('email', '=', $email)->first();
+
+        if ($user == null) {
+            $rs['ret'] = 0;
+            $rs['msg'] = "401 邮箱或者密码错误";
+            return $response->getBody()->write(json_encode($rs));
+        }
+
+        if (!Hash::checkPassword($user->pass, $passwd)) {
+            $rs['ret'] = 0;
+            $rs['msg'] = "402 邮箱或者密码错误";
+
+
+            $loginip=new LoginIp();
+            if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+{
+$list = explode(',',$_SERVER['HTTP_X_FORWARDED_FOR']);
+$_SERVER['REMOTE_ADDR'] = $list[0];
+}
+            $loginip->ip=$_SERVER["REMOTE_ADDR"];
+            $loginip->userid=$user->id;
+            $loginip->datetime=time();
+            $loginip->type=1;
+            $loginip->save();
+
+            return $response->getBody()->write(json_encode($rs));
+        }
+        // @todo
+        $time =  3600*24;
+        if ($rememberMe) {
+            $time = 3600*24*30;
+        }
+
+
+        Auth::login($user->id, $time);
+        $rs['ret'] = 1;
+        $rs['msg'] = "欢迎回来";
+
+        $loginip=new LoginIp();
+        if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+{
+$list = explode(',',$_SERVER['HTTP_X_FORWARDED_FOR']);
+$_SERVER['REMOTE_ADDR'] = $list[0];
+}
+        $loginip->ip=$_SERVER["REMOTE_ADDR"];
+        $loginip->userid=$user->id;
+        $loginip->datetime=time();
+        $loginip->type=0;
+        $loginip->save();
 
         return $response->getBody()->write(json_encode($rs));
     }
@@ -151,6 +223,11 @@ class AuthController extends BaseController
         $rs['msg'] = "欢迎回来";
 
         $loginip=new LoginIp();
+        if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+{
+$list = explode(',',$_SERVER['HTTP_X_FORWARDED_FOR']);
+$_SERVER['REMOTE_ADDR'] = $list[0];
+}
         $loginip->ip=$_SERVER["REMOTE_ADDR"];
         $loginip->userid=$user->id;
         $loginip->datetime=time();
@@ -300,7 +377,7 @@ class AuthController extends BaseController
         }
 
         // check pwd length
-        if (strlen($passwd)<8) {
+        if (strlen($passwd)<2) {
             $res['ret'] = 0;
             $res['msg'] = "密码太短";
             return $response->getBody()->write(json_encode($res));
@@ -321,18 +398,6 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($res));
         }
 
-        if ($imtype==""||$wechat=="") {
-            $res['ret'] = 0;
-            $res['msg'] = "要填上你的联络方式哦";
-            return $response->getBody()->write(json_encode($res));
-        }
-
-        $user = User::where('im_value', $wechat)->where('im_type', $imtype)->first();
-        if ($user != null) {
-            $res['ret'] = 0;
-            $res['msg'] = "此联络方式已经被注册了";
-            return $response->getBody()->write(json_encode($res));
-        }
 
         // do reg user
         $user = new User();
@@ -361,18 +426,28 @@ class AuthController extends BaseController
         $user->invite_num = Config::get('inviteNum');
         $user->auto_reset_day = Config::get('reg_auto_reset_day');
         $user->auto_reset_bandwidth = Config::get('reg_auto_reset_bandwidth');
+        $user->money=0;
+        $user->class_expire=date("Y-m-d H:i:s", time()+Config::get('user_class_expire_default')*3600);
+        $user->class = Config::get('user_class_default');
+        $user->node_connector=Config::get('user_conn');
+        $user->node_speedlimit=Config::get('user_speedlimit');
         if (Config::get('enable_invite_code')=='true') {
             $user->ref_by = $c->user_id;
+            if ($user->ref_by !=0) {
+                $user->money=Config::get('invite_get_money');
+                $gift_user=User::where("id", "=", $user->ref_by)->first();
+                $gift_user->transfer_enable=($gift_user->transfer_enable+Config::get('invite_gift')*1024*1024*1024);
+                $gift_user->save();
+            }
         } else {
             $user->ref_by = 0;
         }
         $user->expire_in=date("Y-m-d H:i:s", time()+Config::get('user_expire_in_default')*86400);
         $user->reg_date=date("Y-m-d H:i:s");
         $user->reg_ip=$_SERVER["REMOTE_ADDR"];
-        $user->money=0;
-        $user->class=0;
+        $user->class_expire=date("Y-m-d H:i:s", time()+Config::get('user_class_expire_default')*3600);
+        $user->class=Config::get('user_class_default');
         $user->plan='A';
-        $user->node_speedlimit=0;
         $user->theme=Config::get('theme');
 
         $group=Config::get('ramdom_group');
