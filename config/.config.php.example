@@ -3,10 +3,10 @@
 //  ss-panel v3 配置
 //
 // !!! 修改此key为随机字符串确保网站安全 !!!
-$System_Config['key'] = '';
+$System_Config['key'] = 'randomkey';
 $System_Config['debug'] =  'false';  //  正式环境请确保为false
-$System_Config['appName'] = '';             //站点名称
-$System_Config['baseUrl'] = 'https://zhaojin97.cn';            // 站点地址
+$System_Config['appName'] = '123';             //站点名称
+$System_Config['baseUrl'] = 'https://123';            // 站点地址
 $System_Config['timeZone'] = 'PRC';        // PRC 天朝时间  UTC 格林时间
 $System_Config['pwdMethod'] = 'sha256';       // 密码加密   可选 md5,sha256
 $System_Config['salt'] = '';               // 密码加密用，从旧版升级请留空
@@ -19,16 +19,35 @@ $System_Config['tokenDriver'] = 'db';
 //$System_Config['version'] = '<a href="https://www.zhaoj.in">Glzjin</a> mod-2016042210000';
 
 // mu key 用于校验ss-go mu的请求,半角逗号分隔
-$System_Config['muKey'] = '';
+$System_Config['muKey'] = 'mupass';
 // 邮件
-$System_Config['mailDriver'] = 'mailgun';   // mailgun or smtp or sendgrid
+$System_Config['mailDriver'] = 'smtp';   // mailgun or smtp or sendgrid
+
+#用户等级过期时间，在注册时设置。（小时）  此部分功能解释：https://91vps.win/2017/09/12/little_point/
+$System_Config['user_class_expire_default']='48';
+
+#用户注册等级，在注册时设置。
+$System_Config['user_class_default']='1';
+
+#用户注册客户端数量限制，0为不限制
+$System_Config['user_conn']='2';
+
+
+#用户注册速度默认限制，0为不限制
+$System_Config['user_speedlimit']='30';
+
+
+#邀请新用户获得流量奖励，单位G
+$System_Config['invite_gift']='0';
+
+#新用户通过私人邀请链接注册，获得奖励金额（鼓励消费）
+$System_Config['invite_get_money']='0';
 
 // 用户签到设置
-$System_Config['checkinMin'] = '1989';       // 签到最少流量 单位MB
-$System_Config['checkinMax'] = '8964';       // 签到最多流量
+$System_Config['checkinMin'] = '100';       // 签到最少流量 单位MB
+$System_Config['checkinMax'] = '500';       // 签到最多流量
 
-//
-$System_Config['defaultTraffic'] = '100';      // 用户初始流量 单位GB
+$System_Config['defaultTraffic'] = '5';      // 用户初始流量 单位GB
 
 // 注册后获得的邀请码数量
 $System_Config['inviteNum'] = '0';
@@ -36,9 +55,9 @@ $System_Config['inviteNum'] = '0';
 # database 数据库配置
 $System_Config['db_driver'] = 'mysql';
 $System_Config['db_host'] = 'localhost';
-$System_Config['db_database'] = '';
-$System_Config['db_username'] = '';
-$System_Config['db_password'] = '';
+$System_Config['db_database'] = 'sspanel';
+$System_Config['db_username'] = 'root';
+$System_Config['db_password'] = 'root';
 $System_Config['db_charset'] = 'utf8';
 $System_Config['db_collation'] = 'utf8_general_ci';
 $System_Config['db_prefix'] = '';
@@ -84,10 +103,10 @@ $System_Config['enable_duoshuo']='false';
 $System_Config['user_expire_in_default']='99999';
 
 #Radius数据库设置
-$System_Config['radius_db_host']='';
-$System_Config['radius_db_database']='';
-$System_Config['radius_db_user']='';
-$System_Config['radius_db_password']='';
+$System_Config['radius_db_host']='localhost';
+$System_Config['radius_db_database']='radius';
+$System_Config['radius_db_user']='radius';
+$System_Config['radius_db_password']='root';
 
 #Radius连接密钥
 $System_Config['radius_secret']='';
@@ -107,15 +126,15 @@ $System_Config['node_offline_warn']='true';
 $System_Config['login_warn']='true';
 
 #端口池
-$System_Config['min_port']='10000';
-$System_Config['max_port']='65535';
+$System_Config['min_port']='800';
+$System_Config['max_port']='30000';
 
 #两种方式相对于ss端口的偏移
 $System_Config['pacp_offset']='-20000';
 $System_Config['pacpp_offset']='-20000';
 
 #测速周期/h
-$System_Config['Speedtest_duration']='6';
+$System_Config['Speedtest_duration']='720';
 
 
 #随机分组，注册时随机分配到的分组，多个分组请用英文半角逗号分隔。
@@ -131,7 +150,7 @@ $System_Config['wecenter_db_password']='';
 $System_Config['wecenter_system_main_domain']='';
 
 #访问路径，不开启这个功能的话就清空这个设置项吧
-$System_Config['wecenter_url']='http://help.';
+$System_Config['wecenter_url']='';
 
 #可从安装好的 wecenter 目录下的 system/config.inc.php 得到
 
@@ -145,7 +164,7 @@ $System_Config['wecenter_cookie_key']='';
 $System_Config['code_payback']='20';
 
 #注册时的流量重置日以及需要重置的流量,0不重置
-$System_Config['reg_auto_reset_day']='0';
+$System_Config['reg_auto_reset_day']='1';
 $System_Config['reg_auto_reset_bandwidth']='100';
 
 #Cloudxns
@@ -171,7 +190,7 @@ $System_Config['jump_delay']='1800';
 $System_Config['enable_invite_code']='true';
 
 #是否启用邮箱验证码
-$System_Config['enable_email_verify']='true';
+$System_Config['enable_email_verify']='false';
 
 #邮箱验证码有效期
 $System_Config['email_verify_ttl']='3600';
@@ -181,7 +200,7 @@ $System_Config['email_verify_iplimit']='10';
 
 
 #注册时默认加密方式
-$System_Config['reg_method']='rc4-md5';
+$System_Config['reg_method']='chacha20-ietf-poly1305';
 
 #注册时默认协议
 $System_Config['reg_protocol']='origin';
@@ -190,10 +209,10 @@ $System_Config['reg_protocol']='origin';
 $System_Config['reg_protocol_param']='';
 
 #注册时默认混淆方式
-$System_Config['reg_obfs']='plain';
+$System_Config['reg_obfs']='simple_obfs_http_compatible';
 
 #注册时默认混淆参数
-$System_Config['reg_obfs_param']='';
+$System_Config['reg_obfs_param']='cloudflare.com';
 
 #注册时默认禁止访问IP列表，半角英文逗号分割
 $System_Config['reg_forbidden_ip']='127.0.0.0/8,::1/128';
@@ -225,7 +244,7 @@ $System_Config['enable_bought_reset']='true';
 $System_Config['enable_account_expire_delete']='true';
 
 #账户到期几天之后会删除账户
-$System_Config['enable_account_expire_delete_days']='0';
+$System_Config['enable_account_expire_delete_days']='3';
 
 #验证码相关设置，自己去 Geetest.com 申请
 $System_Config['geetest_id']='';
@@ -266,7 +285,7 @@ $System_Config['telegram_token']='';
 $System_Config['telegram_chatid']='';
 
 #多用户混淆参数后缀
-$System_Config['mu_suffix']='baidu.com';
+$System_Config['mu_suffix']='cloudflare.com';
 
 #多用户混淆参数表达式，%5m代表取用户特征 md5 的前五位，%id 代表用户id,%suffix 代表上面这个后缀。
 $System_Config['mu_regex']='%5m%id.%suffix';
@@ -294,6 +313,7 @@ $System_Config['sendgrid_key'] = '';
 $System_Config['sendgrid_sender'] = '';
 
 
+
 #支付系统
 
 #取值 paymentwall,zfbjk,spay,none
@@ -315,4 +335,4 @@ $System_Config['zfbjk_key']='';
 $System_Config['zfbjk_qrcodeurl']='https://www.zhaojin97.cn/wp-content/uploads/2016/01/630c50ab52bc139b2a33af8cc64e47ad2016010111570425541.jpg';
 
 #不安全中转模式，这个开启之后使用除了 auth_aes128_md5 或者 auth_aes128_sha1 以外的协议地用户也可以设置和使用中转，但是，强烈推荐不开启。
-$System_Config['relay_insecure_mode']='true';
+$System_Config['relay_insecure_mode']='false';
