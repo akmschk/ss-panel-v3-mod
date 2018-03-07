@@ -236,7 +236,7 @@
 							<div class="card">
 								<div class="card-main">
 									<div class="card-inner margin-bottom-no">
-										<p class="card-heading">帐号使用情况</p>
+										<p class="card-heading"><i class="icon icon-md">account_circle</i>&nbsp;{$user->user_name} | 帐号详情</p>
 										<dl class="dl-horizontal">
 											<p><dt>帐号等级</dt>
 											<dd>{$user->class}</dd></p>
