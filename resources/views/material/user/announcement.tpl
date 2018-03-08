@@ -37,7 +37,7 @@
 													</tr>
 													{foreach $anns as $ann}
 														<tr>
-															<td>#{$ann->id}</td>
+															<td>{$ann->id}</td>
 															<td>{$ann->date}</td>
 															<td>{$ann->content}</td>
 														</tr>
