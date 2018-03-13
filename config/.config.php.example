@@ -134,7 +134,7 @@ $System_Config['pacp_offset']='-20000';
 $System_Config['pacpp_offset']='-20000';
 
 #测速周期/h
-$System_Config['Speedtest_duration']='720';
+$System_Config['Speedtest_duration']='0';
 
 
 #随机分组，注册时随机分配到的分组，多个分组请用英文半角逗号分隔。
