@@ -174,7 +174,7 @@
 																						{$single_muport['user']['obfs']}
 																					</span></p>
 
-																					{if $single_muport['user']['is_multi_user'] == 1}
+																					{if $single_muport['user']['is_multi_user'] != 1}
 																					<p>混淆参数：<span class="label label-green">
 																						{$single_muport['user']['obfs_param']}
 																					</span></p>
