@@ -13,21 +13,21 @@ class TelegramProcess
             switch ($command) {
                 case 'traffic':
                     $bot->sendMessage($message->getChat()->getId(), "您当前的流量状况：
-																	今日已使用 ".$user->TodayusedTraffic()." ".number_format(($user->u+$user->d-$user->last_day_t)/$user->transfer_enable*100, 2)."%
-																	今日之前已使用 ".$user->LastusedTraffic()." ".number_format($user->last_day_t/$user->transfer_enable*100, 2)."%
-																	未使用 ".$user->unusedTraffic()." ".number_format(($user->transfer_enable-($user->u+$user->d))/$user->transfer_enable*100, 2)."%
+今日已用流量： ".$user->TodayusedTraffic()." ".number_format(($user->u+$user->d-$user->last_day_t)/$user->transfer_enable*100, 2)."%
+今日前已使用： ".$user->LastusedTraffic()." ".number_format($user->last_day_t/$user->transfer_enable*100, 2)."%
+剩余可用流量： ".$user->unusedTraffic()." ".number_format(($user->transfer_enable-($user->u+$user->d))/$user->transfer_enable*100, 2)."%
 					                        ", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
                     break;
                 case 'checkin':
                     if (!$user->isAbleToCheckin()) {
-                        $bot->sendMessage($message->getChat()->getId(), "您今天续过了，别续了！再续，再续我就把你续给长者了！", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
+                        $bot->sendMessage($message->getChat()->getId(), "您今天已经签过到了！", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
                         break;
                     }
                     $traffic = rand(Config::get('checkinMin'), Config::get('checkinMax'));
                     $user->transfer_enable = $user->transfer_enable + Tools::toMB($traffic);
                     $user->last_check_in_time = time();
                     $user->save();
-                    $bot->sendMessage($message->getChat()->getId(), "天若有情天亦老，我为长者续一秒！获得了 ".$traffic." MB 流量！", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
+                    $bot->sendMessage($message->getChat()->getId(), "签到成功！获得了 ".$traffic." MB 流量！", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
                     break;
                 default:
                     $bot->sendMessage($message->getChat()->getId(), "???", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
