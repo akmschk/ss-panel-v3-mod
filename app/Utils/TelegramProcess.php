@@ -13,9 +13,9 @@ class TelegramProcess
             switch ($command) {
                 case 'traffic':
                     $bot->sendMessage($message->getChat()->getId(), "您当前的流量状况：
-今日已用 ".$user->TodayusedTraffic()." ".number_format(($user->u+$user->d-$user->last_day_t)/$user->transfer_enable*100, 2)."%
-累计已用 ".$user->LastusedTraffic()." ".number_format($user->last_day_t/$user->transfer_enable*100, 2)."%
-剩余可用 ".$user->unusedTraffic()." ".number_format(($user->transfer_enable-($user->u+$user->d))/$user->transfer_enable*100, 2)."%
+今日已使用 ".$user->TodayusedTraffic()." ".number_format(($user->u+$user->d-$user->last_day_t)/$user->transfer_enable*100, 2)."%
+今日前已用 ".$user->LastusedTraffic()." ".number_format($user->last_day_t/$user->transfer_enable*100, 2)."%
+剩余未使用 ".$user->unusedTraffic()." ".number_format(($user->transfer_enable-($user->u+$user->d))/$user->transfer_enable*100, 2)."%
 					                        ", $parseMode = null, $disablePreview = false, $replyToMessageId = $reply_to);
                     break;
                 case 'checkin':
