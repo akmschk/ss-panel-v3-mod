@@ -177,9 +177,7 @@
 			background-color: #ff0a00;
 		}
 		
-		.page-orange .ui-content-header {
-			background-image: url(/theme/material/css/images/bg/amber.jpg);
-		}
+		
 		
 		.content-heading {
 			font-weight: 300;
