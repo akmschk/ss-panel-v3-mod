@@ -242,7 +242,7 @@
 											<dd>{$user->class}</dd></p>
 
 											<p><dt>等级过期时间</dt>
-											<dd>{if $user->class_expire!="1989-06-04 00:05:00"}<!--{$user->class}--><font color="#FF3E96">{$user->class_expire}</font>{else}不过期{/if}</dd></p>
+											<dd>{$user->class_expire}</dd></p>
 
 											<p><dt>帐号过期时间</dt>
 											<dd>{$user->expire_in}</dd>
