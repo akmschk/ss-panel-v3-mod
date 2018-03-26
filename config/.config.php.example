@@ -123,7 +123,7 @@ $System_Config['duoshuo_apptoken']="";
 $System_Config['node_offline_warn']='true';
 
 #异地登陆提示
-$System_Config['login_warn']='true';
+$System_Config['login_warn']='false';
 
 #端口池
 $System_Config['min_port']='800';
