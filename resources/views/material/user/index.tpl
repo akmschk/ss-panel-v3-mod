@@ -204,7 +204,7 @@
 													</div>
 													<div class="tab-pane fade" id="all_ss_ios">
 														<p>推荐下载 <a href="https://itunes.apple.com/us/app/quantumult/id1252015438?mt=8">Quantumult</a>，然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ss_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制到剪贴板，打开 Quantumult 客户端，选择从剪贴板导入，就可以批量添加节点。</p>
-														<p>iOS 下载&nbsp;<a href="/link/{$ios_token}?is_ss=1">普通端口</a>&nbsp;，导入到 Surge 中，然后就可以随意切换服务器上网了。</p>
+														<p>Surge托管：点击&nbsp;<a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ios_token}?is_ss=1">普通端口</a>&nbsp;复制到剪贴板，导入到 Surge 中，然后就可以随意切换服务器上网了。</p>
 													</div>
 													<div class="tab-pane fade" id="all_ss_android">
 														<p><a href="/ssr-download/ss-android.apk">下载</a>，再<a href="/ssr-download/ss-android-obfs.apk">下载</a>，然后安装，然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ss_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;复制到剪贴板，打开 Shadowsocks 客户端，选择从剪贴板导入，然后选择一个节点，设置一下路由为绕过大陆，点击飞机就可以上网了。</p>
