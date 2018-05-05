@@ -56,7 +56,7 @@ class DailyMail
         PHP_EOL.
         "今日签到人数:".$sts->getTodayCheckinUser().PHP_EOL.
         "今日使用总流量:".Tools::flowAutoShow($lastday_total).PHP_EOL.
-        "晚安咯，别想我哦^_^"
+        "晚安~"
         );
     }
 
