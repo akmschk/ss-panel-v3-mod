@@ -113,8 +113,8 @@
 															然后选择一个合适的服务器，系统代理模式选”全局模式”，代理规则选“绕过局域网和大陆”，然后即可上网。</p>
 
 														<p>SSR 订阅地址：<br>
-															普通端口地址：<code>{$baseUrl}/link/{$ssr_sub_token}?mu=0</code><br>
-															单端口多用户地址：<code>{$baseUrl}/link/{$ssr_sub_token}?mu=1</code>
+															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">普通端口</a> 订阅地址<br>
++															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
 														</p>
 													</div>
 													<div class="tab-pane fade" id="all_ssr_mac">
@@ -123,15 +123,15 @@
 													<div class="tab-pane fade" id="all_ssr_ios">
 														<p>推荐下载&nbsp;<a href="https://itunes.apple.com/us/app/quantumult/id1252015438?mt=8">Quantumult</a>，然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制到剪贴板，打开 Quantumult 客户端，选择从剪贴板导入，就可以批量添加节点。</p>
 														<p>SSR 订阅地址：<br>
-															普通端口地址：<code>{$baseUrl}/link/{$ssr_sub_token}?mu=0</code><br>
-															单端口多用户地址：<code>{$baseUrl}/link/{$ssr_sub_token}?mu=1</code>
+															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">普通端口</a> 订阅地址<br>
++															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
 														</p>
 													</div>
 													<div class="tab-pane fade" id="all_ssr_android">
 														<p><a href="/ssr-download/ssr-android.apk">下载</a>，安装，然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;复制到剪贴板，打开 Shadowsocks 客户端，选择从剪贴板导入，然后选择一个节点，设置一下路由为绕过大陆，点击飞机就可以上网了。同时提供一个 ACL 地址，<a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$acl_token}">点击复制地址</a> 到客户端里应用即可。</p>
 														<p>SSR 订阅地址，您可以在节点列表处添加订阅来自动更新节点：<br>
-															普通端口地址：<code>{$baseUrl}/link/{$ssr_sub_token}?mu=0</code><br>
-															单端口多用户地址：<code>{$baseUrl}/link/{$ssr_sub_token}?mu=1</code>
+															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">普通端口</a> 订阅地址<br>
++															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
 														</p>
 													</div>
 													<div class="tab-pane fade" id="all_ssr_router">
