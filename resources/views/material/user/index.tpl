@@ -60,6 +60,9 @@
 																<a class="waves-attach" data-toggle="tab" href="#all_ssr_info"><i class="icon icon-lg">info_outline</i>&nbsp;连接信息</a>
 															</li>
 															<li>
+																<a class="waves-attach" data-toggle="tab" href="#all_ssr_tap"><i class="icon icon-lg">desktop_windows</i>&nbsp;游戏加速</a>
+</li>
+															<li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ssr_windows"><i class="icon icon-lg">desktop_windows</i>&nbsp;Windows</a>
 															</li>
 															<li>
@@ -105,6 +108,14 @@
 															<p>请注意，在当前状态下您的 SSR 订阅链接已经失效，您无法通过此种方式导入节点。</p>
 														{/if}
 													</div>
+													<div class="tab-pane fade" id="all_ssr_tap">
+	<p>点击&nbsp;<a href="/downloads/SStap-2018.7.10.rar">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
+															然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制ssr:// 链接到剪贴板，打开 SStap 客户端，选择批量添加节点。<br><br>
+													SSR 订阅地址：<br>
+															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">普通端口</a> 订阅地址<br>
+															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
+														</p>
+</div>
 													<div class="tab-pane fade" id="all_ssr_windows">
 														<p><a href="/ssr-download/ssr-win.7z">下载</a>，解压，运行程序，然后您有三种方式导入所有节点<br>
 															(1)下载&nbsp<a href="/user/getpcconf?is_mu=0&is_ss=0">普通端口</a>&nbsp或者&nbsp<a href="/user/getpcconf?is_mu=1&is_ss=0">SSR单端口多用户</a>&nbsp，右键小飞机 服务器 -- 从配置文件导入服务器，选择这个文件，<br>
@@ -150,6 +161,9 @@
 																<a class="waves-attach" data-toggle="tab" href="#all_ss_info"><i class="icon icon-lg">info_outline</i>&nbsp;连接信息</a>
 															</li>
 															<li>
+																<a class="waves-attach" data-toggle="tab" href="#all_ss_tap"><i class="icon icon-lg">desktop_windows</i>&nbsp;游戏加速</a>
+</li>
+															<li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ss_windows"><i class="icon icon-lg">desktop_windows</i>&nbsp;Windows</a>
 															</li>
 															<li>
@@ -194,6 +208,13 @@
 															<p>同时, Shadowsocks 单端口多用户的连接不受您设置的影响,您可以在此使用相应的客户端进行连接~</p>
 														{/if}
 													</div>
+													<div class="tab-pane fade" id="all_ss_tap">
+	<p>点击&nbsp;<a href="/downloads/SStap-2018.7.10.rar">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases/download/2018.7.10/SStap-2018.7.10.exe" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
+      然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ss_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制ss://或ssr:// 链接到剪贴板，打开 SStap 客户端，选择批量添加节点。<br><br>
+													SSR 订阅地址：<br>
+															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
+														</p>
+</div>
 													<div class="tab-pane fade" id="all_ss_windows">
 														<p><a href="/ssr-download/ss-win.zip">下载</a>，解压，运行程序，然后您有两种方式导入所有节点<br>
 															(1)下载&nbsp;<a href="/user/getpcconf?is_mu=0&is_ss=1">普通端口</a>&nbsp;，放到小飞机的目录下，然后打开小飞机。<br>
