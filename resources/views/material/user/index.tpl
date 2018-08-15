@@ -109,7 +109,7 @@
 														{/if}
 													</div>
 													<div class="tab-pane fade" id="all_ssr_tap">
-	<p>点击&nbsp;<a href="/downloads/SStap-2018.7.10.rar">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
+	<p>点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases/download/2018.7.10/SStap-2018.7.10.exe">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
 															然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制ssr:// 链接到剪贴板，打开 SStap 客户端，选择批量添加节点。<br><br>
 													SSR 订阅地址：<br>
 															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">普通端口</a> 订阅地址<br>
@@ -209,7 +209,7 @@
 														{/if}
 													</div>
 													<div class="tab-pane fade" id="all_ss_tap">
-	<p>点击&nbsp;<a href="/downloads/SStap-2018.7.10.rar">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases/download/2018.7.10/SStap-2018.7.10.exe" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
+	<p>点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases/download/2018.7.10/SStap-2018.7.10.exe">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
       然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ss_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制ss://或ssr:// 链接到剪贴板，打开 SStap 客户端，选择批量添加节点。<br><br>
 													SSR 订阅地址：<br>
 															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
