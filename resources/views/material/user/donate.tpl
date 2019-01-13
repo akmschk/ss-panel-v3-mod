@@ -18,7 +18,7 @@
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">捐赠公示</h1>
+				<h1 class="content-heading">众筹明细</h1>
 			</div>
 		</div>
 		<div class="container">
@@ -30,43 +30,14 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>您可以在<a href="/user/code">充值界面</a>进行充值，这样就等同于捐赠了。</p>
+									<p>总收入：<font color="#FF3E96"> {$total_in} </font>元</p>
 									
-									<p>总收入：{$total_in} 元</p>
-									
-									<p>总支出：{$total_out} 元</p>
+									<p>总支出：<font color="#FF3E96"> {$total_out} </font>元</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				
-					<div class="col-lg-12 col-md-12">
-						<div class="card margin-bottom-no">
-							<div class="card-main">
-								<div class="card-inner">
-									<div class="card-inner">
-										<p class="card-heading">匿名捐赠</p>
-										<p>当前设置：{if $user->is_hide==1} 匿名 {else} 不匿名 {/if}</p>
-										<div class="form-group form-group-label">
-											<label class="floating-label" for="hide">匿名设置</label>
-											<select id="hide" class="form-control">
-												<option value="1">匿名</option>
-												<option value="0">不匿名</option>
-											</select>
-										</div>
-										
-									</div>
-									<div class="card-action">
-										<div class="card-action-btn pull-left">
-											<button class="btn btn-flat waves-attach" id="hide-update" ><span class="icon">check</span>&nbsp;提交</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					
 					<div class="col-lg-12 col-md-12">
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -78,7 +49,6 @@
 												<table class="table table-hover">
 													<tr>
 														<th>ID</th>
-														<th>用户名</th>
 														<th>类型</th>
 														<th>操作</th>
 														<th>备注</th>
@@ -87,20 +57,15 @@
 													</tr>
 													{foreach $codes as $code}
 														<tr>
-															<td>#{$code->id}</td>
-															{if $code->user() != null && $code->user()->is_hide == 0}
-															<td>{$code->user()->user_name}</td>
-															{else}
-															<td>已注销或用户要求匿名</td>
-															{/if}
+															<td>{$code->id}</td>
 															{if $code->type == -1}
-															<td>充值捐赠</td>
+															<td>众筹收入</td>
 															{/if}
 															{if $code->type == -2}
 															<td>财务支出</td>
 															{/if}
 															{if $code->type == -1}
-															<td>捐赠 {$code->number} 元</td>
+															<td>众筹 {$code->number} 元</td>
 															{/if}
 															{if $code->type == -2}
 															<td>支出 {$code->number} 元</td>
