@@ -24,8 +24,7 @@
 							<div class="card">
 								<div class="card-main">
 									<div class="card-inner margin-bottom-no">
-										<p class="card-heading">系统中最新公告</p>
-										<p>其他公告请到<a href="/user/announcement"/>公告面板</a>查看。</p>
+										<p class="card-heading"><i class="icon icon-md">notifications_active</i>&nbsp;最新公告</p>
 										{if $ann != null}
 										<p>{$ann->content}</p>
 										{/if}
@@ -37,7 +36,7 @@
 							<div class="card">
 								<div class="card-main">
 									<div class="card-inner margin-bottom-no">
-										<p class="card-heading">连接信息 以及 All-in-One(快速配置指导)</p>
+										<p class="card-heading"><i class="icon icon-md">phonelink</i>&nbsp;连接信息 以及 快速配置指导</p>
 										<p>您可以在这里查看您的连接信息。<br>同时，这里为您提供了自动化地配置文件生成，包含了所有 Shadowsocks 服务器的信息，方便您在诸多的服务器中快速添加，快速切换。</p>
 										<nav class="tab-nav margin-top-no">
 											<ul class="nav nav-list">
@@ -61,8 +60,8 @@
 															</li>
 															<li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ssr_tap"><i class="icon icon-lg">desktop_windows</i>&nbsp;游戏加速</a>
-</li>
-															<li>
+</li>                                               
+<li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ssr_windows"><i class="icon icon-lg">desktop_windows</i>&nbsp;Windows</a>
 															</li>
 															<li>
@@ -76,7 +75,7 @@
 															</li>
 															<li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ssr_router"><i class="icon icon-lg">router</i>&nbsp;路由器</a>
-															</li>
+															</li>															
 														</ul>
 													</nav>
 													<div class="tab-pane fade active in" id="all_ssr_info">
@@ -85,20 +84,15 @@
 														{$ssr_url_all_mu = URL::getAllUrl($pre_user, 1, 0)}
 														{if URL::SSRCanConnect($user)}
 														<dl class="dl-horizontal">
-															<p><dt>端口</dt>
-															<dd>{$user->port}</dd></p>
+															<p><dt>端口：{$user->port}</dt></p>
 
-															<p><dt>密码</dt>
-															<dd>{$user->passwd}</dd></p>
+															<p><dt>密码：{$user->passwd}</dt></p>
 
-															<p><dt>自定义加密</dt>
-															<dd>{$user->method}</dd></p>
+															<p><dt>加密：{$user->method}</dt></p>
 
-															<p><dt>自定义协议</dt>
-															<dd>{$user->protocol}</dd></p>
+															<p><dt>协议：{$user->protocol}</dt></p>
 
-															<p><dt>自定义混淆</dt>
-															<dd>{$user->obfs}</dd></p>
+															<p><dt>混淆：{$user->obfs}</dt></p>
 														</dl>
 														{else}
 															<p>您好，您目前的 加密方式，混淆，或者协议设置在 ShadowsocksR 客户端下无法连接。请您选用 Shadowsocks 客户端来连接，或者到 资料编辑 页面修改后再来查看此处。</p>
@@ -109,17 +103,17 @@
 														{/if}
 													</div>
 													<div class="tab-pane fade" id="all_ssr_tap">
-	<p>点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases/download/2018.7.10/SStap-2018.7.10.exe">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
+	<p>点击&nbsp;<a href="/downloads/SStap-2018.7.10.rar">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
 															然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制ssr:// 链接到剪贴板，打开 SStap 客户端，选择批量添加节点。<br><br>
 													SSR 订阅地址：<br>
 															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">普通端口</a> 订阅地址<br>
 															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
 														</p>
-</div>
+                                                  </div>
 													<div class="tab-pane fade" id="all_ssr_windows">
 														<p><a href="/ssr-download/ssr-win.7z">下载</a>，解压，运行程序，然后您有三种方式导入所有节点<br>
 															(1)下载&nbsp<a href="/user/getpcconf?is_mu=0&is_ss=0">普通端口</a>&nbsp或者&nbsp<a href="/user/getpcconf?is_mu=1&is_ss=0">SSR单端口多用户</a>&nbsp，右键小飞机 服务器 -- 从配置文件导入服务器，选择这个文件，<br>
-															(2)点击&nbsp<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp或者&nbsp<a class="copy-text" data-clipboard-text="{$ssr_url_all}">SSR单端口多用户</a>&nbsp，然后右键小飞机 -- 从剪贴板复制地址<br>
+															(2)点击&nbsp<a class="copy-text" data-clipboard-text="{$ssr_url_all}">普通端口</a>&nbsp或者&nbsp<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp，然后右键小飞机 -- 从剪贴板复制地址<br>
 															(3)(推荐)右键小飞机--服务器--SSR服务器订阅设置，将订阅地址设置为下面的地址，其他参数留空，确定之后再更新 SSR 服务器订阅。<br>
 															然后选择一个合适的服务器，系统代理模式选”全局模式”，代理规则选“绕过局域网和大陆”，然后即可上网。</p>
 
@@ -163,7 +157,7 @@
 															<li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ss_tap"><i class="icon icon-lg">desktop_windows</i>&nbsp;游戏加速</a>
 </li>
-															<li>
+                                                          <li>
 																<a class="waves-attach" data-toggle="tab" href="#all_ss_windows"><i class="icon icon-lg">desktop_windows</i>&nbsp;Windows</a>
 															</li>
 															<li>
@@ -191,17 +185,13 @@
 															<p>各个节点的地址请到 <a href="/user/node"/>节点列表</a> 查看！</p>
 
 
-															<p><dt>端口</dt>
-															<dd>{$user->port}</dd></p>
+															<p><dt>端口：{$user->port}</dt></p>
 
-															<p><dt>密码</dt>
-															<dd>{$user->passwd}</dd></p>
+															<p><dt>密码：{$user->passwd}</dt></p>
 
-															<p><dt>自定义加密</dt>
-															<dd>{$user->method}</dd></p>
+															<p><dt>加密：{$user->method}</dt></p>
 
-															<p><dt>自定义混淆</dt>
-															<dd>{$user->obfs}</dd></p>
+															<p><dt>混淆：{$user->obfs}</dt></p>
 														</dl>
 														{else}
 															<p>您好，您目前的 加密方式，混淆，或者协议设置在 SS 客户端下无法连接。请您选用 SSR 客户端来连接，或者到 资料编辑 页面修改后再来查看此处。</p>
@@ -209,12 +199,12 @@
 														{/if}
 													</div>
 													<div class="tab-pane fade" id="all_ss_tap">
-	<p>点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases/download/2018.7.10/SStap-2018.7.10.exe">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
+	<p>点击&nbsp;<a href="/downloads/SStap-2018.7.10.rar">SStap</a>&nbsp;下载并安装2018.7.10版本游戏加速软件<br>或点击&nbsp;<a href="https://github.com/FQrabbit/SSTap-Rule/releases" target="_black">SStap_GitHub</a>&nbsp;获取最新版<br><br>
       然后点击&nbsp;<a class="copy-text" data-clipboard-text="{$ss_url_all}">普通端口</a>&nbsp;或者&nbsp;<a class="copy-text" data-clipboard-text="{$ssr_url_all_mu}">SSR单端口多用户</a>&nbsp;，复制ss://或ssr:// 链接到剪贴板，打开 SStap 客户端，选择批量添加节点。<br><br>
 													SSR 订阅地址：<br>
 															点击复制 <a class="copy-text" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=1">单端口多用户</a> 订阅地址
 														</p>
-</div>
+                                          </div>
 													<div class="tab-pane fade" id="all_ss_windows">
 														<p><a href="/ssr-download/ss-win.zip">下载</a>，解压，运行程序，然后您有两种方式导入所有节点<br>
 															(1)下载&nbsp;<a href="/user/getpcconf?is_mu=0&is_ss=1">普通端口</a>&nbsp;，放到小飞机的目录下，然后打开小飞机。<br>
@@ -257,42 +247,21 @@
 							<div class="card">
 								<div class="card-main">
 									<div class="card-inner margin-bottom-no">
-										<p class="card-heading">帐号使用情况</p>
+										<p class="card-heading"><i class="icon icon-md">account_circle</i>&nbsp;{$user->user_name} | 帐号详情</p>
 										<dl class="dl-horizontal">
-											<p><dt>帐号等级</dt>
-											<dd>{$user->class}</dd></p>
+                                           <p><dt>帐号等级：{$user->class}</dt></p>
+                                           <p><dt>在线设备：{$user->online_ip_count()}</dt></p>
+                                           <p><dt>设备限制：{if $user->node_connector!=0}<font color="#FF3E96">{$user->node_connector}</font>{else}不限制{/if}</dt></p>
+                                           <p><dt>最高速率：{if $user->node_speedlimit!=0}<font color="#FF3E96">{$user->node_speedlimit}Mbps</font>{else}不限速{/if}</dt></p>
+                                           <p><dt>等级过期时间：{if $user->class_expire!="1989-06-04 00:05:00"}<!--{$user->class}--><font color="#FF3E96">{$user->class_expire}</font>{else}不过期{/if}</dt></p>
+                                           <p><dt>帐号过期时间：{$user->expire_in}</dt></p>
+                                           <p><dt>最近连接时间：{$user->lastSsTime()}</dt></p>
 
-											<p><dt>等级过期时间</dt>
-											<dd>{$user->class_expire}</dd></p>
-
-											<p><dt>帐号过期时间</dt>
-											<dd>{$user->expire_in}</dd>
-
-											<p><dt>速度限制</dt>
-											{if $user->node_speedlimit!=0}
-											<dd>{$user->node_speedlimit}Mbps</dd>
-											{else}
-											<dd>不限速</dd>
-											{/if}</p>
-                                          
-                                            <p><dt>在线设备数量</dt>
-											<dd>{$user->online_ip_count()}</dd></p>
-                                          
-                                            <p><dt>设备数量限制</dt>
-											{if $user->node_connector!=0}
-											<dd>{$user->node_connector}个</dd>
-											{else}
-                                            <dd>不限制</dd>
-											{/if}</p>
-                                          
-											<p><dt>上次使用</dt>
-											<dd>{$user->lastSsTime()}</dd></p>
 										</dl>
 									</div>
 
 								</div>
 							</div>
-
 							<div class="card">
 								<div class="card-main">
 									<div class="card-inner margin-bottom-no">
@@ -347,43 +316,6 @@
 
 								</div>
 							</div>
-
-
-
-							<div class="card">
-								<div class="card-main">
-									<div class="card-inner margin-bottom-no">
-										<p class="card-heading">签到获取流量</p>
-											<p>流量不会重置，可以通过签到获取流量。</p>
-
-											<p>每次签到可以获取{$config['checkinMin']}~{$config['checkinMax']}MB流量。</p>
-
-											<p>每天可以签到一次。您可以点击按钮或者摇动手机来签到。</p>
-
-											<p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
-
-											<p id="checkin-msg"></p>
-
-											{if $geetest_html != null}
-												<div id="popup-captcha"></div>
-											{/if}
-									</div>
-
-									<div class="card-action">
-										<div class="card-action-btn pull-left">
-											{if $user->isAbleToCheckin() }
-												<p id="checkin-btn">
-													<button id="checkin" class="btn btn-brand btn-flat waves-attach"><span class="icon">check</span>&nbsp;签到</button>
-												</p>
-											{else}
-												<p><a class="btn btn-brand disabled btn-flat waves-attach" href="#"><span class="icon">check</span>&nbsp;不能签到</a></p>
-											{/if}
-										</div>
-									</div>
-
-								</div>
-							</div>
-
 
 						{if $enable_duoshuo=='true'}
 
