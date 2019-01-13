@@ -24,7 +24,7 @@
 								<div class="card">
 									<div class="card-main">
 										<div class="card-inner">
-											<p>请问您今天要来点兔子吗？</p>
+										<p>请问您今天要来点兔子吗 ？</p>
 										</div>
 									</div>
 								</div>
@@ -35,38 +35,26 @@
 								<div class="card card-brand">
 									<div class="card-main">
 										<div class="card-inner">
-											<p class="card-heading">用户面板</p>
-											<p>
-												您可以点击按钮进入面板。
-											</p>
+											<p class="card-heading">{$user->user_name}</p>
 										</div>
+<div class="card-inner">
+							<div class="inner">
+                                  <p>在线：{$user->online_ip_count()} 个</p>
+                                  <p>总流量：{$user->enableTraffic()}</p>
+                                  <p>今日已用：{$user->TodayusedTraffic()}</p>
+				  <p>累计已用：{$user->usedTraffic()}</p>
+                                  <p>剩余未用：{$user->unusedTraffic()}</p>
+                          </div>
+                      </div>	
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light waves-effect" href="/user"><span class="icon">airline_seat_recline_normal</span>&nbsp;进入</a>
+												<a class="btn btn-flat waves-attach waves-light waves-effect" href="/user"><span class="icon">airline_seat_recline_normal</span>&nbsp;进入用户中心</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						{else}
-							<div class="col-lg-12 col-sm-12">
-								<div class="card card-brand">
-									<div class="card-main">
-										<div class="card-inner">
-											<p class="card-heading">注册</p>
-											<p>
-												没有账户？点击按钮注册一个。
-											</p>
-										</div>
-										<div class="card-action">
-											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light waves-effect" href="/auth/register"><span class="icon">pregnant_woman</span>&nbsp;注册</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
 							<div class="col-lg-12 col-sm-12">
 								<div class="card card-brand-accent">
 									<div class="card-main">
