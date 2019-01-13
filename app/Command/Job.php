@@ -136,13 +136,13 @@ class Job
             }
         }
 
-        NodeInfoLog::where("log_time", "<", time()-86400*3)->delete();
-        NodeOnlineLog::where("log_time", "<", time()-86400*3)->delete();
-        TrafficLog::where("log_time", "<", time()-86400*3)->delete();
-        DetectLog::where("datetime", "<", time()-86400*3)->delete();
-        Speedtest::where("datetime", "<", time()-86400*3)->delete();
-        EmailVerify::where("expire_in", "<", time()-86400*3)->delete();
-        Telegram::Send("姐姐姐姐，数据库被清理了，感觉身体被掏空了呢~");
+        NodeInfoLog::where("log_time", "<", time()-86400*1)->delete();
+        NodeOnlineLog::where("log_time", "<", time()-86400*1)->delete();
+        TrafficLog::where("log_time", "<", time()-86400*1)->delete();
+        DetectLog::where("datetime", "<", time()-86400*1)->delete();
+        Speedtest::where("datetime", "<", time()-86400*1)->delete();
+        EmailVerify::where("expire_in", "<", time()-86400*1)->delete();
+        Telegram::Send("数据库清理完毕，晚安~");
 
         //auto reset
         $boughts=Bought::all();
