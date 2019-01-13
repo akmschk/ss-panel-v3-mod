@@ -52,11 +52,7 @@ class DailyMail
         
         $sts = new Analytics();
         
-        Telegram::Send("各位帅哥哥小姐姐，我来为大家报告一下系统今天的运行状况哈~".
-        PHP_EOL.
-        "今日签到人数:".$sts->getTodayCheckinUser().PHP_EOL.
-        "今日使用总流量:".Tools::flowAutoShow($lastday_total).PHP_EOL.
-        "晚安~"
+        Telegram::Send("今日使用总流量:".Tools::flowAutoShow($lastday_total)
         );
     }
 
