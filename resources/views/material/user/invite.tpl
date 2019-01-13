@@ -25,7 +25,7 @@
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">邀请</h1>
+				<h1 class="content-heading">邀请码</h1>
 			</div>
 		</div>
 		<div class="container">
@@ -37,43 +37,7 @@
 							<div class="card-main">
 								<div class="card-inner">
 									<div class="card-inner">
-										<p class="card-heading">注意！</p>
-
-										<p>邀请码请给认识的需要的人。</p>
-
-										<p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>
-									</div>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-lg-12 col-md-12">
-						<div class="card margin-bottom-no">
-							<div class="card-main">
-								<div class="card-inner">
-									<div class="card-inner">
-										<p class="card-heading">说明</p>
-
-										<p>邀请码暂时无法购买，请珍惜。</p>
-
-										<p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>
-										
-										<p>您每拉一位用户注册，当 TA 充值时您就会获得 TA 充值金额的 <code>{$config["code_payback"]} %</code> 的提成。</p>
-									</div>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-lg-12 col-md-12">
-						<div class="card margin-bottom-no">
-							<div class="card-main">
-								<div class="card-inner">
-									<div class="card-inner">
-										<p class="card-heading">邀请</p>
+										<p class="card-heading">邀请码</p>
 										<p>当前您可以生成<code>{$user->invite_num}</code>个邀请码。 </p>
 									</div>
 									{if $user->invite_num }
