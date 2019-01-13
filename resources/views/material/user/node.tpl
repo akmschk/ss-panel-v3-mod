@@ -4,8 +4,6 @@
 
 
 
-
-
 {include file='user/main.tpl'}
 
 
@@ -26,7 +24,10 @@
 							<div class="card-main">
 								<div class="card-inner">
 									<h4>注意!</h4>
-									<p>请勿在任何地方公开节点地址！</p>
+                                  <p>梅林固件DNS设置</p>
+									<p>建议使用：选择中国DNS&nbsp-&nbsp运营商DNS[自动获取]</p>
+                                   <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp选择外国DNS&nbsp-&nbspchinadns1&nbsp或&nbsphttps_dns_prox</p>
+                                  <p>请勿在任何地方公开节点地址！</p>
 									<p>流量比例为0.5即使用1000MB按照500MB流量记录记录结算.</p>
 									<a href="javascript:void(0);" onClick="urlChange('guide',0,0,0)">如果您不知道如何查看节点的详细信息和二维码，请点我。</a>
 								</div>
@@ -53,7 +54,7 @@
 																</div>
 															</div>
 															<div class="tile-inner">
-																<div class="text-overflow">{$prefix} | <i class="icon icon-lg">person</i> {$node_alive[$prefix]} | <i class="icon icon-lg">import_export</i> {$node_method[$prefix]} | <i class="icon icon-lg">equalizer</i> {if isset($node_bandwidth[$prefix])==true}{$node_bandwidth[$prefix]}{else}N/A{/if}</div>
+																<div class="text-overflow">{$prefix} <font color="#1976d2"><i class="icon icon-lg">person</i></font> {$node_alive[$prefix]}&nbsp;| <font color="#1976d2">{$node_method[$prefix]}</font> | <font color="#1976d2"><i class="icon icon-lg">equalizer</i></font> {if isset($node_bandwidth[$prefix])==true}{$node_bandwidth[$prefix]}{else}N/A{/if}</div>
 															</div>
 														</div>
 														<div class="collapsible-region collapse" id="heading{$node_order->$prefix}">
@@ -73,7 +74,7 @@
 																		<div class="card-main">
 																			<div class="card-inner">
 																			<p class="card-heading" >
-																				<a href="javascript:void(0);" onClick="urlChange('{$node->id}',0,{if $relay_rule != null}{$relay_rule->id}{else}0{/if})">{$node->name}{if $relay_rule != null} - {$relay_rule->dist_node()->name}{/if}</a>
+																				<a href="javascript:void(0);" onClick="urlChange('{$node->id}',0,{if $relay_rule != null}{$relay_rule->id}{else}0{/if})">{$prefix}{if $relay_rule != null} - {$relay_rule->dist_node()->name}{/if}</a>
 																				<span class="label label-brand-accent">{$node->status}</span>
 																			</p>
 
@@ -210,9 +211,7 @@
 																		<script>
 																		$().ready(function(){
 																			$('#heading{$node_order->$prefix}').on("shown.bs.tile", function() {
-
 																				$("#info{$id}").load("/user/node/{$point_node->id}/ajax");
-
 																			});
 																		});
 																		</script>
@@ -265,8 +264,6 @@
 
 
 <script>
-
-
 function urlChange(id,is_mu,rule_id) {
     var site = './node/'+id+'?ismu='+is_mu+'&relay_rule='+rule_id;
 	if(id == 'guide')
