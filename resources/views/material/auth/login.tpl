@@ -57,26 +57,6 @@
 															</div>
 														</div>
 													</div>
-
-													<div class="form-group form-group-label">
-														<div class="row">
-															<div class="col-md-10 col-md-push-1">
-																<label class="floating-label" for="code">两步验证码(没有就别填)</label>
-																<input class="form-control" id="code" type="text" placeholder="没有就别填">
-															</div>
-														</div>
-													</div>
-
-													{if $geetest_html != null}
-														<div class="form-group form-group-label">
-															<div class="row">
-																<div class="col-md-10 col-md-push-1">
-																	<div id="embed-captcha"></div>
-																</div>
-															</div>
-														</div>
-													{/if}
-
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-10 col-md-push-1">
@@ -144,12 +124,6 @@
 								</div>
 								{/if}
 							</div>
-						</div>
-
-
-						<div class="clearfix">
-							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="/password/reset">忘记密码</a></p>
-							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="/auth/register">注册个帐号</a></p>
 						</div>
 
 
